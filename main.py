@@ -29,7 +29,6 @@ player_walk_down = [pg.image.load("down_frame1.png"), pg.image.load("down_frame2
 player_weapon = pg.image.load("rifle.png").convert()
 player_weapon.set_colorkey(BLACK)
 
-
 class Player:
     def __init__(self, x, y, width, height):
         self.x = x
@@ -42,6 +41,7 @@ class Player:
         self.moving_up = False
         self.moving_down = False
 
+    # TODO: give user option to choose weapon
     def weapons(self, display):
         mouse_x, mouse_y = pg.mouse.get_pos()
 
@@ -77,7 +77,6 @@ class Player:
         self.moving_left = False
         self.moving_up = False
         self.moving_down = False
-
 
 class EnemyPumpkin:
     def __init__(self, x, y):
@@ -115,6 +114,7 @@ class EnemyPumpkin:
 
         display.blit(pg.transform.scale(self.anim_images[self.anim_count // 6], (32, 30)), (self.x - display_scroll[
             0], self.y - display_scroll[1]))
+# TODO: add more types of enemies with different types of animation
 
 
 class PlayerBullet:
@@ -133,6 +133,7 @@ class PlayerBullet:
         self.y -= int(self.vel_y)
 
         pygame.draw.circle(display, BLACK, (self.x + 15, self.y + 15), 5)
+    # TODO: add collision detection between bullet and Pumpkin
 
 
 player = Player(940, 520, 32, 32)
